@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response.Status.CREATED
 val SERVICE_NAMES = listOf("Controller", "Network Map Service")
 
 // This API is accessible from /api/example. All paths specified below are relative to it.
-@Path("example")
+@Path("AppWallet")
 class ExampleApi(private val rpcOps: CordaRPCOps) {
     private val myLegalName: CordaX500Name = rpcOps.nodeInfo().legalIdentities.first().name
 
@@ -33,6 +33,15 @@ class ExampleApi(private val rpcOps: CordaRPCOps) {
     @Path("me")
     @Produces(MediaType.APPLICATION_JSON)
     fun whoami() = mapOf("me" to myLegalName)
+
+    @GET
+    @Path("getTicket")
+    @Produces(MediaType.APPLICATION_JSON)
+    fun getTicket(@QueryParam("userKey") userKey : String) : Response
+    {
+        TODO("TODO must implement a suitable contract" +
+                " state for this and then kick of the flow to get a signedTx")
+    }
 
     /**
      * Returns all parties registered with the [NetworkMapService]. These names can be used to look up identities

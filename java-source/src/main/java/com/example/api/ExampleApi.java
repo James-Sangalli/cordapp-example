@@ -26,7 +26,7 @@ import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 import static javax.ws.rs.core.Response.Status.CREATED;
 
 // This API is accessible from /api/example. All paths specified below are relative to it.
-@Path("example")
+@Path("AppWallet")
 public class ExampleApi {
     private final CordaRPCOps rpcOps;
     private final CordaX500Name myLegalName;
